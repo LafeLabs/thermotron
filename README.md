@@ -8,3 +8,5 @@
 
 
 ![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/geometron-assembly.svg)
+
+![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/base-geometron-cardboard.png)
