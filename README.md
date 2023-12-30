@@ -22,6 +22,8 @@
 
 ![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/photo-whole-thermometer.png)
 
+![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/shield-board-screenshot.png)
+
 
 ### ARDUINO CODE
 
