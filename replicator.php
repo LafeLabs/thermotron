@@ -1,6 +1,6 @@
 <?php
 
-$dnaurl = "https://raw.githubusercontent.com/LafeLabs/switchotron/main/data/dna.txt";
+$dnaurl = "https://raw.githubusercontent.com/LafeLabs/thermotron/main/data/dna.txt";
 
 if(isset($_GET["dna"])){
     $dnaurl = $_GET["dna"];
@@ -12,8 +12,9 @@ $dna = json_decode($dnaraw);
 
 mkdir("data");
 mkdir("php");
+mkdir("trashmagic");
 
-copy("https://raw.githubusercontent.com/LafeLabs/switchotron/main/php/replicator.txt","replicator.php");
+copy("https://raw.githubusercontent.com/LafeLabs/thermotron/main/php/replicator.txt","replicator.php");
 
 
 foreach($dna->html as $value){

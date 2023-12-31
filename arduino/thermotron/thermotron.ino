@@ -1,33 +1,3 @@
-# [THERMOTRON](https://github.com/lafelabs/thermotron/)
-
-### [localhost](http://localhost/)
-
-![qr code pointing to github repository](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/qrcode.png)
-
-![a whole page of qr codes to print out](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/qrcode-screen.png)
-
-![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/WHOLE-GEOMETRON.svg)
-
-![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/geometron-assembly.svg)
-
-![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/base.svg)
-
-![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/base-geometron-cardboard.png)
-
-![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/dividor-photograph.png)
-
-![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/base-photo.png)
-
-![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/shield-photo.png)
-
-![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/photo-whole-thermometer.png)
-
-![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/shield-board-screenshot.png)
-
-
-### ARDUINO CODE
-
-```
 //THERMOTRON!
 //PUBLIC DOMAIN!
 //INSTALL THE ADAFRUIT NEOPIXEL LIBRARY TO RUN THIS CODE!
@@ -132,7 +102,3 @@ void loop() {
     strip.show(); 
 
 }
-
-
-
-```
