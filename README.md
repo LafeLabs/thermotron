@@ -23,13 +23,36 @@ We will specify a standard JSON format here in this self-replicating document wh
 
 This is thermometry as social media!
 
+Also note that with a GPS module on a mobile station like a vehicle, this system can gather a rather large amount of high resolution temperature data.  A headless single board computer can log or it can save data and then dump after some amount of time over serial.  
+
+A combination of photographs of a scene with locations marked of sensors can be used to generate an interpolated 3d map of expected temperatures.  This is not real. But it can be trained to become more and more real over time by taking data and building up models on the data both across the whole social network and around any given specific system. Python and the various open source machine learning systems around images in python can be used as well as Blender to create visualizations of temperature data on 3d virtual worlds built on the real world. 
+
+We can create data which can see microclimates down to the millimeter of resolution, up to the global scale for all of the Earth. And we can create raw data which can be used to learn the physics of all things in our everyday world.  We can build up thermal models of parts in vehicles, parts of houses, parts of large buildings, trees, soil, compost, and so on.
+
+One thing that is missing from the initial prototype is waterproofing. Also we need to build up a model for any given environmental enclosure for how the sensor actually couples to the environment, how much it might read off due to gradients, how to eliminate and compute gradients. We want a system for calibration of our sensors as well as standard operating procedures for using our sensors to calibrate other sensors.  
+
+## BOM
+
+ - [$24.95 Adafruit ESP32-S2 TFT Feather - 4MB Flash, 2MB PSRAM, STEMMA QT](https://www.adafruit.com/product/5300)
+ - [$4.95 Adafruit MCP9808 High Accuracy I2C Temperature Sensor Breakout - STEMMA QT / Qwiic](https://www.adafruit.com/product/5027)
+ - [$4.95 Adafruit USB Type A to Type C Cable - approx 1 meter / 3 ft long](https://www.adafruit.com/product/4474)
+ - [$0.95 Adafruit STEMMA QT / Qwiic JST SH 4-Pin Cable - 50mm Long](https://www.adafruit.com/product/4399)
+ - [$8.95 SparkFun Qwiic Cable Kit](https://www.sparkfun.com/products/15081)
 
 ## LORE
 
  - [The Qwiic Connect System from Sparkfun](https://www.sparkfun.com/qwiic)
- - [SparkFun Qwiic Cable Kit](https://www.sparkfun.com/products/15081)
- - [SparkFun Temperature Sensor - STTS22H (Qwiic)](https://www.sparkfun.com/products/21262)
- - [Adafruit ESP32-S2 TFT Feather - 4MB Flash, 2MB PSRAM, STEMMA QT](https://www.adafruit.com/product/5300)
- - [Adafruit MCP9808 High Accuracy I2C Temperature Sensor Breakout - STEMMA QT / Qwiic](https://www.adafruit.com/product/5027)
+ - COMPOST
+ - AUTO MECHANICAL THERMOMETRY
+ - SOLAR POWER THERMOMETRY
+ - THE FEDIVERSE
+ - JSON
+ - TRASH MAGIC
+ - P5JS
+ - ADAFRUIT
+ - SPARKFUN
+ - FEATHER WING
+ - CLIMATE DATA
+
 
  - [EDITOR.PHP](editor.php)
