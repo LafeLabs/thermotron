@@ -31,6 +31,8 @@ We can create data which can see microclimates down to the millimeter of resolut
 
 One thing that is missing from the initial prototype is waterproofing. Also we need to build up a model for any given environmental enclosure for how the sensor actually couples to the environment, how much it might read off due to gradients, how to eliminate and compute gradients. We want a system for calibration of our sensors as well as standard operating procedures for using our sensors to calibrate other sensors.  
 
+If you build one of these and run it, and help build out this network, you can build science for whatever it is you do, be it building machines or composting.
+
 ## BOM
 
  - [$24.95 Adafruit ESP32-S2 TFT Feather - 4MB Flash, 2MB PSRAM, STEMMA QT](https://www.adafruit.com/product/5300)
