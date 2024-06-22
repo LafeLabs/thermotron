@@ -27,7 +27,6 @@ EGO DEATH:
 
 <a href = "index.html">index.html</a>
 <a href = "dnagenerator.php">dnagenerator.php</a>
-<a href = "make-replicator-script.php">make-replicator-script.php</a>
 <a href = "text2php.php">text2php.php</a>
 
 

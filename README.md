@@ -1,138 +1,34 @@
-# [THERMOTRON](https://github.com/lafelabs/thermotron/)
+# [THERMOTRON](https://github.com/lafelabs/thermotron)
 
-### [localhost](http://localhost/)
+![](images/qrcode.png)
+![](images/qrcode-page.png)
 
-![qr code pointing to github repository](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/qrcode.png)
+## TALE
 
-![a whole page of qr codes to print out](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/qrcode-screen.png)
+I am an applied physicists by trade and by training, and I go by Trash Robot on the Internet. The THERMOTRON is a free hardware implementation of a project I was paid to work on while working at the Johns Hopkins University Applied Physics Laboratory in suburban Maryland, half way between DC and Baltimore.  We had a complex system of pipes and tubes and needed to log temperatures at various points around the system.  This is the sort of task that is supposed to be "easy".  All you have to do is buy stuff and it "just works".  But what system? And how will it log?  How will it talk to your existing systems? How do you make the trade offs between cost and accuracy?
 
-![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/WHOLE-GEOMETRON.svg)
+What I concluded was that I2C sensors from [Adafruit](https://adafrut.com) would be the easiest way to do this, with the best trade off of accuracy vs. cost, as well as removing a bunch of the cost associated with engineering that the user has to do to make a real system. 
 
-![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/geometron-assembly.svg)
+## LORE
 
-![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/base.svg)
+ - [The Qwiic Connect System from Sparkfun](https://www.sparkfun.com/qwiic)
+ - [SparkFun Qwiic Cable Kit](https://www.sparkfun.com/products/15081)
+ - [SparkFun Temperature Sensor - STTS22H (Qwiic)](https://www.sparkfun.com/products/21262)
+ - [Adafruit ESP32-S2 TFT Feather - 4MB Flash, 2MB PSRAM, STEMMA QT](https://www.adafruit.com/product/5300)
+ - [Adafruit MCP9808 High Accuracy I2C Temperature Sensor Breakout - STEMMA QT / Qwiic](https://www.adafruit.com/product/5027)
 
-![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/base-geometron-cardboard.png)
-
-![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/dividor-photograph.png)
-
-![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/base-photo.png)
-
-![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/shield-photo.png)
-
-![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/photo-whole-thermometer.png)
-
-![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/trashmagic/shield-board-screenshot.png)
-
-
-### ARDUINO CODE
-
-```
-//THERMOTRON!
-//PUBLIC DOMAIN!
-//INSTALL THE ADAFRUIT NEOPIXEL LIBRARY TO RUN THIS CODE!
-
-
-
-
-#include <Adafruit_NeoPixel.h>
-#ifdef __AVR__
- #include <avr/power.h> // Required for 16 MHz Adafruit Trinket
-#endif
-
-
-
-// Which pin on the Arduino is connected to the NeoPixels?
-// On a Trinket or Gemma we suggest changing this to 1:
-#define LED_PIN    6
-
-// How many NeoPixels are attached to the Arduino?
-#define LED_COUNT 30
-
-
-//put a voltage divider from 5 volts thru a 
-//100 K thermister to A1 and from A1 to ground 
-//via a 100k bias resistor, with negative temperature coeficient 
-//voltage is monotonically increasing with temperature
-
-int knob = 0;
-int temperature = 0;
-int temperature0 = 0;
-int numLEDs = 30;
-int v = 0;
-int n = 10;
-int barlevel = 0;
-float gain = .25;
-int frequency = 220;
-
-int button1pin = 3;
-int button2pin = 2;
-boolean button1 = false;
-boolean button2 = false;
-
-
-
-Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
-
-#include <Wire.h>
-#include <SPI.h>
-
-
-void setup() {
-
-    Serial.begin(115200);
-    strip.begin();           // INITIALIZE NeoPixel strip object (REQUIRED)
-    strip.show();            // Turn OFF all pixels ASAP
-    pinMode(button1pin,INPUT_PULLUP); 
-    pinMode(button2pin,INPUT_PULLUP); 
-    temperature = analogRead(A1);
-    knob = analogRead(A2);
-    temperature0 = temperature;
-
- 
-}
-
-
-void loop() {
-  v = 0;
-  for(int index = 0;index < n;index++){
-      v  = v + analogRead(A1);
-      delay(1);
-  }
-  
-  v = v/n;
-  temperature = int(v);
-  temperature = analogRead(A1);
-  Serial.println(temperature);
-  
-  knob = analogRead(A2);
-  button1 = !digitalRead(button1pin);  
-  button2 = !digitalRead(button2pin);  
-  if(!button1 && !button2){
-    barlevel = int(knob*30/1024);
-  }
-  if(button1){
-    gain = (knob+30.0)/1024.0;
-  }
-  if(button2){
-    temperature0 = knob;
-  }
-  if(button1 || button2){
-    barlevel = 14 + int(gain*(temperature - temperature0));
-  }
-  
-   for(int i=0; i<strip.numPixels(); i++) { // For each pixel in strip...
-    if(i < barlevel){
-        strip.setPixelColor(i, 255, 0, 0);         
-    }
-    else{
-        strip.setPixelColor(i, 0, 0, 0);               
-    }
-   }
-    strip.show(); 
-
-}
-
-
-
-```
+ WHY DID I BUILD THIS?
+ - WHERE DID I BUILD THIS?
+ - WHERE CAN YOU BUY THE SET ALL PUT TOGETHER?
+ - WHERE CAN YOU BUY A KIT?
+ - WHAT NEEDS TO BE DONE RIGHT NOW TO IMPROVE THIS?
+ - HOW CAN YOU MAKE AND SELL KITS?
+ - HOW CAN YOU MAKE AND SELL THE FULLY ASSEMBLED UNIT?
+ - WHY MIGHT YOU WANT THIS?
+ - HOW MUCH DOES THIS COST?
+ - WHAT MIGHT THIS BECOME?
+ - WHAT WILL HAPPEN TO THESE THINGS WHEN THEY FAIL?
+ - HOW MANY PEOPLE HAVE COPIED THIS, AND WHO ARE THEY?
+ - HOW DOES THIS SCALE TO 10 UNITS, 100, 1000, 10,000, 100,000, 1 MILLION AND SO ON?
+ - SELF-REPLICATING WEB PAGE 
+ - [EDITOR.PHP](editor.php)

@@ -23,12 +23,15 @@ https://cloud9-sdk.readme.io/docs/language-mode
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js" type="text/javascript" charset="utf-8"></script>
 
-<title>Html Pi Crust Code Editor</title>
+<title>HTML CODE EDITOR!</title>
 
 </head>
 <body>
-<a href=  "index.html" style = "position:absolute;right:5px;top:1.5em;font-size:2em">HOME</a>
-<a  href = "webdestroyer.html" style = "display:none;position:absolute;right:5px;top:3em;font-size:2em">DESTROYER</a>
+
+<div id = "lightdarkbutton" class = "button">LIGHT MODE</div>
+
+<a id = "homelink" href=  "index.html" style = "position:absolute;right:5px;top:1.5em;font-size:2em">HOME</a>
+
 
 <table id = "inputtable">
     <tr>
@@ -96,7 +99,7 @@ httpc8.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         scrolls = JSON.parse(this.responseText);
         for(var index = 0;index < scrolls.length;index++) {    
-            if(scrolls[index].substring(scrolls[index].length-5,scrolls[index].length) == ".html" || scrolls[index].substring(scrolls[index].length-4,scrolls[index].length) == ".css" || scrolls[index].substring(scrolls[index].length-3,scrolls[index].length) == ".js" ||scrolls[index].substring(scrolls[index].length-3,scrolls[index].length) == ".sh"  || scrolls[index].substring(scrolls[index].length-3,scrolls[index].length) == ".py" || scrolls[index].substring(scrolls[index].length-4,scrolls[index].length) == ".txt" || scrolls[index].substring(scrolls[index].length-4,scrolls[index].length) == ".ino" || scrolls[index].substring(scrolls[index].length-5,scrolls[index].length) == ".json" || scrolls[index].substring(scrolls[index].length-4,scrolls[index].length) == ".tex" || scrolls[index].substring(scrolls[index].length - 3,scrolls[index].length) == ".md"){
+            if(scrolls[index].substring(scrolls[index].length-5,scrolls[index].length) == ".html" || scrolls[index].substring(scrolls[index].length-4,scrolls[index].length) == ".css" || scrolls[index].substring(scrolls[index].length-3,scrolls[index].length) == ".js"  || scrolls[index].substring(scrolls[index].length-3,scrolls[index].length) == ".py" || scrolls[index].substring(scrolls[index].length-4,scrolls[index].length) == ".txt" || scrolls[index].substring(scrolls[index].length-4,scrolls[index].length) == ".ino" || scrolls[index].substring(scrolls[index].length-5,scrolls[index].length) == ".json" || scrolls[index].substring(scrolls[index].length-4,scrolls[index].length) == ".tex" || scrolls[index].substring(scrolls[index].length - 3,scrolls[index].length) == ".md"){
              
                 if(scrolls[index].substring(scrolls[index].length-5,scrolls[index].length) == ".html"){
                     var newa = document.createElement("A");
@@ -265,15 +268,62 @@ function setmode(){
     if(currentFile.substring(currentFile.length-5,currentFile.length) == ".json"){
         editor.getSession().setMode("ace/mode/json");
     }       
-    if(currentFile.substring(currentFile.length-3,currentFile.length) == ".sh"){
-        editor.getSession().setMode("ace/mode/sh");
-    }   
-
     
 }
 
 codesquaresize = 120;
 
+
+lightmode = false;
+document.getElementById("lightdarkbutton").onclick = function(){
+    lightmode = !lightmode;
+    if(lightmode){
+        document.getElementById("lightdarkbutton").style.color = "black";
+        document.getElementById("lightdarkbutton").style.borderColor = "black";
+        
+        document.getElementById("filescroll").style.backgroundColor = "white";
+        document.getElementById("homelink").style.color = "blue";
+
+        document.getElementById("filescroll").style.color = "black";        
+        document.getElementById("currentfilename").style.backgroundColor = "#eeeeee";
+        document.getElementById("currentfilename").style.color = "black";
+        document.getElementById("newscrollinput").style.color = "black";
+        document.getElementById("newscrollinput").style.backgroundColor = "white";
+        document.body.style.backgroundColor = "#b0b0b0";
+        document.body.style.color = "black";
+        document.getElementById("lightdarkbutton").innerHTML = "DARK MODE";
+        editor.setTheme("ace/theme/github");
+
+        var links = document.getElementById("filescroll").getElementsByTagName("a");
+        for(var index = 0;index < links.length;index++){
+            links[index].style.color = "blue";
+        }
+    }
+    else{
+        
+        document.getElementById("lightdarkbutton").style.color = "white";
+        document.getElementById("lightdarkbutton").style.borderColor = "white";
+        
+        document.body.style.backgroundColor = "#404040";
+        document.body.style.color = "white";
+        document.getElementById("homelink").style.color = "#ff2cb4";
+        
+        document.getElementById("filescroll").style.backgroundColor = "#101010";        
+        document.getElementById("filescroll").style.color = "white";        
+        
+        document.getElementById("currentfilename").style.backgroundColor = "#101010";        
+        document.getElementById("currentfilename").style.color = "white"
+        document.getElementById("newscrollinput").style.color = "white";
+        document.getElementById("newscrollinput").style.backgroundColor = "black";        
+        document.getElementById("lightdarkbutton").innerHTML = "LIGHT MODE";        
+        editor.setTheme("ace/theme/vibrant_ink");
+
+        var links = document.getElementById("filescroll").getElementsByTagName("a");
+        for(var index = 0;index < links.length;index++){
+            links[index].style.color = "#ff2cb4";
+        }        
+    }
+}
 </script>
 <style>
 a{
@@ -284,6 +334,8 @@ a{
     left:10px;
     top:10px;
     font-family:courier;
+    font-size:1.5em;
+    
 }
 #newscrollinput{
     font-family:courier;
@@ -348,7 +400,19 @@ input{
 .button:active{
     background-color:yellow;
 }
-
+#lightdarkbutton{
+    position:absolute;
+    right:0px;
+    top:0px;
+    right:5px;
+    top:5px;
+    text-align:center;
+    border:solid;
+    border-radius:3px;
+    font-size:2em;
+    border-color:white;
+    color:white;
+}
 </style>
 
 </body>
