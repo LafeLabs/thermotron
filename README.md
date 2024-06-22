@@ -44,6 +44,8 @@ If you build one of these and run it, and help build out this network, you can b
 ## LORE
 
  - [The Qwiic Connect System from Sparkfun](https://www.sparkfun.com/qwiic)
+ - [keyboard emulation absolute basics](https://learn.adafruit.com/make-it-a-keyboard/overview)
+ - [logger with keyboard emulation](https://learn.adafruit.com/make-it-data-log-spreadsheet-circuit-playground/overview)
  - COMPOST
  - AUTO MECHANICAL THERMOMETRY
  - SOLAR POWER THERMOMETRY
@@ -55,6 +57,4 @@ If you build one of these and run it, and help build out this network, you can b
  - SPARKFUN
  - FEATHER WING
  - CLIMATE DATA
-
-
  - [EDITOR.PHP](editor.php)
