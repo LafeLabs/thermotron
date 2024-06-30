@@ -1,7 +1,33 @@
 # [THERMOTRON](https://github.com/lafelabs/thermotron)
 
+![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/thermotron.svg)
+
+![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T-replication.svg)
+
 ![](images/qrcode.png)
 ![](images/qrcode-page.png)
+
+
+![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T-chain.svg)
+
+
+![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T1.svg)
+
+![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T1-back.jpg)
+
+![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T2.svg)
+
+![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T2-back.jpg)
+
+
+![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T3.svg)
+
+![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T3-back.jpg)
+
+![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T4.svg)
+
+![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T4-back.jpg)
+
 
 ## TALE
 
@@ -33,7 +59,7 @@ One thing that is missing from the initial prototype is waterproofing. Also we n
 
 If you build one of these and run it, and help build out this network, you can build science for whatever it is you do, be it building machines or composting.
 
-## BOM
+## BOM(Bill Of Materials)
 
  - [$24.95 Adafruit ESP32-S2 TFT Feather - 4MB Flash, 2MB PSRAM, STEMMA QT](https://www.adafruit.com/product/5300)
  - [$4.95 Adafruit MCP9808 High Accuracy I2C Temperature Sensor Breakout - STEMMA QT / Qwiic](https://www.adafruit.com/product/5027)
@@ -42,6 +68,74 @@ If you build one of these and run it, and help build out this network, you can b
  - [$8.95 SparkFun Qwiic Cable Kit](https://www.sparkfun.com/products/15081)
 
 ## LORE
+
+### [code.py](https://github.com/LafeLabs/thermotron/blob/main/circuit_python/code.py)
+
+```
+# SPDX-FileCopyrightText: 2018 Kattni Rembor for Adafruit Industries
+#
+# SPDX-License-Identifier: MIT
+
+import time
+import board
+import digitalio
+import adafruit_mcp9808
+import usb_hid
+from adafruit_hid.keyboard import Keyboard
+from adafruit_hid.keyboard_layout_us import KeyboardLayoutUS
+from adafruit_hid.keycode import Keycode
+
+button_start_stop = digitalio.DigitalInOut(board.BUTTON)
+button_start_stop.direction = digitalio.Direction.INPUT
+button_start_stop.pull = digitalio.Pull.UP
+
+#i2c = board.I2C()  # uses board.SCL and board.SDA
+i2c = board.STEMMA_I2C()  # For using the built-in STEMMA QT connector on a microcontroller
+
+# To initialise using the default address:
+#mcp = adafruit_mcp9808.MCP9808(i2c)
+
+# To initialise using a specified address:
+# Necessary when, for example, connecting A0 to VDD to make address=0x19
+mcp = adafruit_mcp9808.MCP9808(i2c, address=0x18)
+mcp0 = adafruit_mcp9808.MCP9808(i2c, address=0x19) 
+mcp1 = adafruit_mcp9808.MCP9808(i2c, address=0x1A)
+mcp2 = adafruit_mcp9808.MCP9808(i2c, address=0x1C)
+
+running = False
+# The keyboard object!
+time.sleep(1)  # Sleep for a bit to avoid a race condition on some systems
+keyboard = Keyboard(usb_hid.devices)
+keyboard_layout = KeyboardLayoutUS(keyboard)  # We're in the US :)
+
+
+
+while True:
+#    print(not(button_start_stop.value))
+ #   print(not(button_unit_select.value))
+    if not(button_start_stop.value):
+        running = not(running)
+        if not(running):
+            print("STOP")
+        else:
+            print("START")
+        time.sleep(0.1)
+    T1C = mcp.temperature
+    T1F = T1C * 9 / 5 + 32
+    T2C = mcp0.temperature
+    T2F = T2C * 9 / 5 + 32
+    T3C = mcp1.temperature
+    T3F = T3C * 9 / 5 + 32
+    T4C = mcp2.temperature
+    T4F = T4C * 9 / 5 + 32
+    if running:
+        print("[{},{},{},{}] F\n[{},{},{},{}] C".format(T1F, T2F, T3F, T4F, T1C, T2C, T3C, T4C))
+        keyboard_layout.write("[{},{},{},{}] F\n[{},{},{},{}] C\n".format(T1F, T2F, T3F, T4F, T1C, T2C, T3C, T4C))
+    time.sleep(1)
+
+
+```
+
 
  - [The Qwiic Connect System from Sparkfun](https://www.sparkfun.com/qwiic)
  - [keyboard emulation absolute basics](https://learn.adafruit.com/make-it-a-keyboard/overview)
