@@ -28,6 +28,7 @@
         "fileloader.txt",
         "filesaver.txt",
         "mkdir.txt",
+        "pngsave.txt",
         "rdelete.txt",
         "replicator.txt",
         "text2php.txt"

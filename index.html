@@ -59,7 +59,7 @@
 document.getElementById("datainput").value = "";
 document.getElementById("datainput").select();
 
-squareWidth = 800;
+squareWidth = 400;
 
 T1Fwave = [];
 T2Fwave = [];
@@ -220,6 +220,23 @@ document.getElementById("datainput").onchange = function(){
         //save JSON data file in thermotron_data/
         //save png file in thermotron_plots/
         //load all the plots in a plot feed, click on them to get data, all saved by unix time, which marks end of timewave
+        png64 = document.getElementById("defaultCanvas0").toDataURL("image/png");
+        var timestamp = Math.round((new Date().getTime())/1000).toString();
+
+        var httpc = new XMLHttpRequest();
+        var url = "pngsave.php";        
+        httpc.open("POST", url, true);
+        httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        httpc.send("data="+encodeURIComponent(png64.substring(22))+"&filename=thermotron_plots/thermotron_plot_" + timestamp +  ".png");//send text to filesaver.php
+         //location.reload(); 
+
+        var url = "filesaver.php";        
+        var httpc2 = new XMLHttpRequest();
+        httpc2.open("POST", url, true);
+        httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        httpc2.send("data="+encodeURIComponent(JSON.stringify(data,null,"    "))+"&filename=thermotron_data/thermotron_data_" + timestamp +".txt");//send text to filesaver.php
+         
+         
         T1Fwave = [];
         T2Fwave = [];
         T3Fwave = [];
