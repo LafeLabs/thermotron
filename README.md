@@ -11,22 +11,29 @@
 ![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T-chain.svg)
 
 
+[![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/feather.jpg)](https://www.adafruit.com/product/5300)
+
 ![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T1.svg)
 
-![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T1-back.jpg)
+[![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T1-back.jpg)](https://www.adafruit.com/product/5027)
 
 ![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T2.svg)
 
-![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T2-back.jpg)
+[![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T2-back.jpg)](https://www.adafruit.com/product/5027)
 
 
 ![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T3.svg)
 
-![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T3-back.jpg)
+[![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T3-back.jpg)](https://www.adafruit.com/product/5027)
 
 ![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T4.svg)
 
-![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T4-back.jpg)
+[![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T4-back.jpg)](https://www.adafruit.com/product/5027)
+
+
+### [code.py](https://github.com/LafeLabs/thermotron/blob/main/circuit_python/code.py)
+
+![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/circuitpy-lib.jpg)
 
 
 ## TALE
