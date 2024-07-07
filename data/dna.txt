@@ -9,6 +9,7 @@
         "readme.html",
         "readmeeditor.html",
         "replicator.sh",
+        "thermotron-fullscreen.html",
         "trashmagic.css",
         "trashmagic.js",
         "wall.html",

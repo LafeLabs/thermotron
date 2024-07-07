@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+        <!--
+
+
+    -->
+    
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA4A8AAO/vAADqrwAA6q8AAOqvAADqrwAA6q8AAOqvAADqrwAA7+8AAMAHAADf9wAAwAcAAPu/AAD4PwAA" rel="icon" type="image/x-icon" />
+
+
+       <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+   <title>THERMOTRON</title>    
+   <script src = "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
+
+</head>
+<body>
+
+<img style = "width:100px" src = "http://colfax.site/geometron/symbolfeed/symbol1719700358.svg"/>
+       
+   <input id = "datainput"/>
+
+<table>
+    <tr id = "row1">
+        <td>T1 = </td>
+        <td id = "T1C"></td>
+        <td>C = </td>
+        <td id = "T1F"></td>
+        <td>F</td>
+    </tr>
+    <tr id = "row2">
+        <td>T2 = </td>
+        <td id = "T2C"></td>
+        <td>C = </td>
+        <td id = "T2F"></td>
+        <td>F</td>
+    </tr>
+    <tr id = "row3">
+        <td>T3 = </td>
+        <td id = "T3C"></td>
+        <td>C = </td>
+        <td id = "T3F"></td>
+        <td>F</td>
+    </tr>
+    <tr id = "row4">
+        <td>T4 = </td>
+        <td id = "T4C"></td>
+        <td>C = </td>
+        <td id = "T4F"></td>
+        <td>F</td>
+    </tr>
+</table>
+<textarea id = "jsonio"></textarea>
+<script>
+document.getElementById("datainput").value = "";
+document.getElementById("datainput").select();
+document.getElementById("jsonio").value = "";
+
+squareWidth = 400;
+
+T1Fwave = [];
+T2Fwave = [];
+T3Fwave = [];
+T4Fwave = [];
+T1Cwave = [];
+T2Cwave = [];
+T3Cwave = [];
+T4Cwave = [];
+
+timeindex = 0;
+
+function setup() {
+    createCanvas(innerWidth,innerHeight);
+    background(159,135,103);
+    stroke(0);
+    strokeWeight(10);
+//      image(img, 0, 0,squareWidth-50,squareWidth-70);
+}
+
+
+function draw() {
+  
+  stroke(0);
+
+    
+}
+
+
+metadata = "temperature tests";
+        //add a input for the metadata
+
+document.getElementById("datainput").onchange = function(){
+    rawtext =  this.value;
+    jsondata = JSON.parse("[" + rawtext.split("[")[1].split("]")[0] + "]");
+    if(rawtext.charAt(rawtext.length-1) == 'C'){
+        T1C = Math.round(jsondata[0]*10)/10;
+        T2C = Math.round(jsondata[1]*10)/10;
+        T3C = Math.round(jsondata[2]*10)/10;
+        T4C = Math.round(jsondata[3]*10)/10;
+        document.getElementById("T1C").innerHTML = T1C.toString();
+        document.getElementById("T2C").innerHTML = T2C.toString();
+        document.getElementById("T3C").innerHTML = T3C.toString();
+        document.getElementById("T4C").innerHTML = T4C.toString();
+    }    
+    if(rawtext.charAt(rawtext.length-1) == 'F'){
+        T1F = Math.round(jsondata[0]*10)/10;
+        T2F = Math.round(jsondata[1]*10)/10;
+        T3F = Math.round(jsondata[2]*10)/10;
+        T4F = Math.round(jsondata[3]*10)/10;
+        document.getElementById("T1F").innerHTML = T1F.toString();
+        document.getElementById("T2F").innerHTML = T2F.toString();
+        document.getElementById("T3F").innerHTML = T3F.toString();
+        document.getElementById("T4F").innerHTML = T4F.toString();
+    }    
+    this.value = "";
+    clear();
+    background(159,135,103);
+    strokeWeight(1);
+    stroke(0);
+    textSize(35);
+    fill(0);
+    textindent = 10;
+      textAlign(RIGHT);
+
+    line(0,height - map(140, 40, 150, 0, height),width,height - map(140, 40, 150, 0, height));
+    text("140 F",width - textindent,height - map(140, 40, 150, 0, height) - 5);
+    
+    line(0,height - map(130, 40, 150, 0, height),width,height - map(130, 40, 150, 0, height));
+    text("130 F",width - textindent,height - map(130, 40, 150, 0, height) - 5);
+    
+    line(0,height - map(120, 40, 150, 0, height),width,height - map(120, 40, 150, 0, height));
+    text("120 F",width - textindent,height - map(120, 40, 150, 0, height) - 5);
+
+    line(0,height - map(110, 40, 150, 0, height),width,height - map(110, 40, 150, 0, height));
+    text("110 F",width - textindent,height - map(110, 40, 150, 0, height) - 5);
+
+    line(0,height - map(100, 40, 150, 0, height),width,height - map(100, 40, 150, 0, height));
+    text("100 F",width - textindent,height - map(100, 40, 150, 0, height) - 5);
+
+    line(0,height - map(90, 40, 150, 0, height),width,height - map(90, 40, 150, 0, height));
+    text("90 F",width - textindent,height - map(90, 40, 150, 0, height) - 5);
+
+    line(0,height - map(80, 40, 150, 0, height),width,height - map(80, 40, 150, 0, height));
+    text("80 F",width - textindent,height - map(80, 40, 150, 0, height) - 5);
+
+    line(0,height - map(70, 40, 150, 0, height),width,height - map(70, 40, 150, 0, height));
+    text("70 F",width - textindent,height - map(70, 40, 150, 0, height) - 5);
+    line(0,height - map(60, 40, 150, 0, height),width,height - map(60, 40, 150, 0, height));    
+    text("60 F",width - textindent,height - map(60, 40, 150, 0, height) - 5);
+    line(0,height - map(50, 40, 150, 0, height),width,height - map(50, 40, 150, 0, height));
+    text("50 F",width - textindent,height - map(50, 40, 150, 0, height) - 5);
+    
+        //add a grid
+        //add labels for max and min temps
+
+    for(i = 60;i < width;i += 60){
+        line(2*i,height,2*i,0);
+        text(Math.round(i/60).toString() + " min",2*i+5,height-5);
+    }
+    
+    stroke(255,0,0);
+    fill(255,0,0);
+    textSize(30);
+    text("T1",10,60);
+    strokeWeight(20);
+    beginShape();
+    T1Fwave.push(T1F);
+    T1Cwave.push(T1C);
+
+    noFill();
+    for(var i = 0; i < T1Fwave.length; i++){
+        y = map(T1Fwave[i], 40, 150, 0, height);
+        vertex(2*i,height - y);
+    }
+    endShape();
+
+    T2Fwave.push(T2F);
+    T2Cwave.push(T2C);
+
+    strokeWeight(1);
+    stroke(0,155,0);
+    fill(0,155,0);
+    text("T2",70,60);
+    strokeWeight(20);
+    beginShape();
+    noFill();
+    for(var i = 0; i < T2Fwave.length; i++){
+        y = map(T2Fwave[i], 40, 150, 0, height);
+        vertex(2*i,height - y);
+    }
+    endShape();
+
+    T3Fwave.push(T3F);
+    T3Cwave.push(T3C);
+
+    strokeWeight(1);
+    stroke(0,0,255);
+    fill(0,0,255);
+    text("T3",130,60);
+    strokeWeight(20);
+    beginShape();
+    noFill();
+    for(var i = 0; i < T3Fwave.length; i++){
+        y = map(T3Fwave[i], 40, 150, 0, height);
+        vertex(2*i,height - y);
+    }
+    endShape();
+
+    T4Fwave.push(T4F);
+    T4Cwave.push(T4C);
+    strokeWeight(1);
+    stroke(255,0,255);
+    fill(255,0,255);
+    text("T4",190,60);
+    strokeWeight(20);
+    beginShape();
+    noFill();
+    for(var i = 0; i < T4Fwave.length; i++){
+        y = map(T4Fwave[i], 40, 150, 0, height);
+        vertex(2*i,height - y);
+    }
+    endShape();
+
+
+    timeindex++;
+    if(timeindex > squareWidth){
+        timeindex = 0;
+        data = {};
+        data.metadata = metadata;
+        data.T1F = T1Fwave;
+        data.T2F = T2Fwave;
+        data.T3F = T3Fwave;
+        data.T4F = T4Fwave;
+        data.T1C = T1Cwave;
+        data.T2C = T2Cwave;
+        data.T3C = T3Cwave;
+        data.T4C = T4Cwave;
+        document.getElementById("jsonio").value = JSON.stringify(data,null,"    ");
+        //save JSON data file in thermotron_data/
+        //save png file in thermotron_plots/
+        //load all the plots in a plot feed, click on them to get data, all saved by unix time, which marks end of timewave
+        T1Fwave = [];
+        T2Fwave = [];
+        T3Fwave = [];
+        T4Fwave = [];
+        T1Cwave = [];
+        T2Cwave = [];
+        T3Cwave = [];
+        T4Cwave = [];
+    }
+}
+
+</script>
+<style>
+body, table{
+    font-family:Comic Sans MS;
+}
+body{
+    background-color:#9f8767;    
+}
+input{
+    width:40em;
+    font-size:1em;
+    font-family:courier;
+    background-color:black;
+    color:#00ff00;
+}
+textarea{
+    font-family:courier;
+    background-color:black;
+    color:#00ff00;
+    display:none;
+}
+main canvas{
+    border:solid;
+    position:absolute;
+    left:0px;
+    bottom:0px;
+    z-index:-1;
+}
+table{
+    font-size:3em;
+}
+#row1{
+    color:red;
+}
+#row2{
+    color:green;
+}
+#row3{
+    color:blue;
+}
+#row4{
+    color:purple;
+}
+
+</style>
+</body>
+</html>
+
+

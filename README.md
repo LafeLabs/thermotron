@@ -68,11 +68,10 @@ If you build one of these and run it, and help build out this network, you can b
 
 ## BOM(Bill Of Materials)
 
- - [$24.95 Adafruit ESP32-S2 TFT Feather - 4MB Flash, 2MB PSRAM, STEMMA QT](https://www.adafruit.com/product/5300)
- - [$4.95 Adafruit MCP9808 High Accuracy I2C Temperature Sensor Breakout - STEMMA QT / Qwiic](https://www.adafruit.com/product/5027)
- - [$4.95 Adafruit USB Type A to Type C Cable - approx 1 meter / 3 ft long](https://www.adafruit.com/product/4474)
- - [$0.95 Adafruit STEMMA QT / Qwiic JST SH 4-Pin Cable - 50mm Long](https://www.adafruit.com/product/4399)
- - [$8.95 SparkFun Qwiic Cable Kit](https://www.sparkfun.com/products/15081)
+ - [1x $24.95 Adafruit ESP32-S2 TFT Feather - 4MB Flash, 2MB PSRAM, STEMMA QT](https://www.adafruit.com/product/5300)
+ - [4x $4.95 Adafruit MCP9808 High Accuracy I2C Temperature Sensor Breakout - STEMMA QT / Qwiic](https://www.adafruit.com/product/5027)
+ - [1x $4.95 Adafruit USB Type A to Type C Cable - approx 1 meter / 3 ft long](https://www.adafruit.com/product/4474)
+ - [4x $1.13 STEMMA QT / Qwiic JST SH 4-Pin Cable - 200mm Long](https://www.adafruit.com/product/4401)
 
 ## LORE
 
