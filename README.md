@@ -12,6 +12,9 @@
 
 ## [THERMOTRON SCIENTISTS](scientists/)
 
+## [README SET](readme/)
+
+## [QRCODE SET](qrcode/)
 
 ![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/thermotron.svg)
 
@@ -21,30 +24,16 @@
 
 ![](images/qrcode.png)
 ![](images/qrcode-page.png)
-
- - [theromtron plot screen](thermotron-fullscreen.html)
-
-
+![](images/qrcode-set.png)
 ![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T-chain.svg)
-
-
 [![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/feather.jpg)](https://www.adafruit.com/product/5300)
-
 ![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T1.svg)
-
 [![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T1-back.jpg)](https://www.adafruit.com/product/5027)
-
 ![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T2.svg)
-
 [![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T2-back.jpg)](https://www.adafruit.com/product/5027)
-
-
 ![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T3.svg)
-
 [![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T3-back.jpg)](https://www.adafruit.com/product/5027)
-
 ![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T4.svg)
-
 [![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T4-back.jpg)](https://www.adafruit.com/product/5027)
 
 
@@ -82,6 +71,7 @@ We can create data which can see microclimates down to the millimeter of resolut
 One thing that is missing from the initial prototype is waterproofing. Also we need to build up a model for any given environmental enclosure for how the sensor actually couples to the environment, how much it might read off due to gradients, how to eliminate and compute gradients. We want a system for calibration of our sensors as well as standard operating procedures for using our sensors to calibrate other sensors.  
 
 If you build one of these and run it, and help build out this network, you can build science for whatever it is you do, be it building machines or composting.
+
 
 ## BOM(Bill Of Materials)
 

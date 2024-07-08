@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <!--
+
+QR Code Generator using qrcode.js   
+
+    -->
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEREREREBERAREREBEQEAEBEREQARAQAQEREAAAEBERAREQAAAAAAABERAAABERERERERABEREREREREBEREREREREREREREREREREREAAAAREQAAAAEREBERAREQAQAQEREBABABABAREQEAEAEREBERAREQAAAAEREAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon">
+
+    <!--Stop Google:-->
+    <META NAME="robots" CONTENT="noindex,nofollow">
+
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>    
+
+<table id = "maintable"></table>
+
+<script>
+
+table  = document.getElementById("maintable");
+
+col = 0;
+row = 0;
+
+qrcodefiles = [];
+var httpc9 = new XMLHttpRequest();
+    httpc9.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        qrcodefiles = JSON.parse(this.responseText);
+        for(var index = qrcodefiles.length - 1;index >= 0;index--) {
+            if(col == 0){
+                newtr = document.createElement("TR");
+                table.appendChild(newtr);
+            }
+            var newtd = document.createElement("TD");
+            var newh = document.createElement("H1");
+            newh.innerHTML = qrcodefiles[index].split("-qrcode.png")[0];
+            var newimg = document.createElement("IMG");
+            newimg.src = "../qrcodes/" + qrcodefiles[index];
+            newtd.appendChild(newimg);
+            newtd.appendChild(newh  );
+            newtr.appendChild(newtd);
+            col++;
+            if(col == 7){
+                col = 0;
+                row++;
+            }
+        }
+    }
+};
+httpc9.open("GET", "dir.php?filename=../qrcodes", true);
+httpc9.send();
+
+
+</script>
+<style>
+input{
+    border:solid;
+}
+body{
+    font-family:courier;
+}
+canvas,img{
+    border:solid;
+    border-width:4px;
+    margin:1em 1em 1em 1em;
+}
+img{
+    max-width:150px;
+}
+#dirlistinput{
+    width:30em;
+    height:20em;
+}
+#maintable h1{
+    font-size:16px;
+    text-align:center;
+}
+.button{
+    cursor:pointer;
+    text-align:center;
+    border:solid;
+    border-radius:3px;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
+}
+</style>
+</body>
+</html>

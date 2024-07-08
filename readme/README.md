@@ -1,4 +1,4 @@
-# [Back up to OSHI](../)
+# [Back up to THERMOTRON](../)
 
 ![](../qrcodes/readme-qrcode.png)
 

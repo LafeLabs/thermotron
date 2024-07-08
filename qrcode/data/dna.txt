@@ -5,11 +5,12 @@
         "geometron.js",
         "index.html",
         "qrcode-page.html",
+        "qrcode-table-generator.html",
+        "qrcode-table.html",
         "qrcode.html",
         "readme.html",
         "readmeeditor.html",
         "replicator.sh",
-        "scroll.html",
         "table.html",
         "trashmagic.css",
         "trashmagic.js",
@@ -33,6 +34,7 @@
         "pngsave.txt",
         "rdelete.txt",
         "replicator.txt",
-        "text2php.txt"
+        "text2php.txt",
+        "updir.txt"
     ]
 }
