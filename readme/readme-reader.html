@@ -5,17 +5,17 @@
 
     <!--
 
-github.com/lafelabs/picrust/README.md
+github.com/lafelabs/OSHI/README.md
 
     -->
-    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAP//AP///wANAP8A5Dz6ABueRwAAt/8A6BonABo86AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAREREREREREREREAAAEREREREQCIgREREd3dwAAB3d3d3d3d3d3d3d3d3d3d3d3d3VVVVVVVQAFVVAAVVVQIiBRAiIBEQIAIBECAAERAgAgFgIABmYCIiBmAiIGZgIiIGYCIgZmYCIAaIAAMzMzAAiIiIiIiIiIiIiIiIiIiIiIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
+
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA4AcAAO/3AADH9wAA7/cAAO/3AADEdwAA7/cAAOw3AADH9wAA7HcAAO/3AADEFwAA7/cAAOAHAAD//wAA" rel="icon" type="image/x-icon">
 
     <!--Stop Google:-->
     <META NAME="robots" CONTENT="noindex,nofollow">
 
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>
 
-<!--       un comment to use math
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script>
@@ -28,15 +28,17 @@ github.com/lafelabs/picrust/README.md
                 }
             });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
         </script>
-    -->
 
-    
 </head>
 <body>    
 <div id = "scrollscroll"></div>
-<a id = "editlink" href= "readmeeditor.html">EDIT</a>
+<a id = "editlink" href= "readme-editor.html">README EDITOR</a>
 
 <a id = "homelink" href= "index.html">HOME</a>
+
+
+<div id = "title"></div>
+<div id= "dirscroll"></div>
 
 <script>
 
@@ -52,7 +54,9 @@ converter.setOption('tables', 'true')
 filename = "README.md";
 loadscroll("README.md");
 
+document.getElementById("title").innerHTML = filename;
 
+newscroll = "";
 function loadscroll(scrollname){
     filename = scrollname;
 
@@ -62,10 +66,12 @@ function loadscroll(scrollname){
     httpc666.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             scroll = this.responseText;
-            rawhtml = converter.makeHtml(scroll);
+            newscroll = scroll.replace(/]\(images/g, "](../" + currentdir + "/images");
+
+            rawhtml = converter.makeHtml(newscroll);
             document.getElementById("scrollscroll").innerHTML = rawhtml;
 
-            //			MathJax.Hub.Typeset();//tell Mathjax to update the math
+            			MathJax.Hub.Typeset();//tell Mathjax to update the math
     //			MathJax.Hub.Typeset();//tell Mathjax to update the math
         }
     };
@@ -74,6 +80,32 @@ function loadscroll(scrollname){
     //MathJax.Hub.Typeset();//tell Mathjax to update the math
 }
 
+
+currentdir = "readme";
+
+readmefiles = [];
+var httpc9 = new XMLHttpRequest();
+    httpc9.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        readmefiles = JSON.parse(this.responseText);
+        for(var index = 0;index < readmefiles.length;index++) {
+            if(readmefiles[index] != "php" && readmefiles[index] != "data"){
+                var newdiv = document.createElement("DIV");
+                newdiv.innerHTML = "../" +  readmefiles[index] + "/README.md";
+                newdiv.className = "readmelink";
+                document.getElementById("dirscroll").appendChild(newdiv);
+                newdiv.onclick = function(){
+                    currentdir = this.innerHTML.split("/README.md")[0].split("../")[1];
+                    loadscroll(this.innerHTML);
+                    document.getElementById("title").innerHTML = this.innerHTML;
+
+                }
+            }
+        }
+    }
+};
+httpc9.open("GET", "updir.php", true);
+httpc9.send();
 
 </script>
 <style>
@@ -93,9 +125,45 @@ a{
     position:absolute;
     overflow:scroll;
     font-size:2em;
+    width:50%;
     display:none;
     z-index:-3;
 }
+#dirscroll{
+    padding-left:1em;
+    padding-right:1em;
+    right:0px;
+    bottom:0px;
+    position:absolute;
+    overflow:scroll;
+    font-size:2em;
+    top:4em;
+    width:40%;
+    z-index:-3;
+}
+#title{
+    position:absolute;
+    right:0px;
+    top:1.5em;
+    font-size:2em;
+    z-index:-1;
+}
+
+.readmelink{
+    border:solid;
+    border-radius:10px;
+    padding: 5px 5px 5px 5px;
+    margin-top:5px;
+    margin-bottom:5px;
+    cursor:pointer;
+}
+.readmelink:hover{
+    background-color:green;
+}
+.readmelink:active{
+    background-color:yellow;
+}
+
 pre{
     overflow:scroll;
 }
@@ -111,14 +179,14 @@ h1,h2,h3,h4{
 
 #editlink{
     position:absolute;
-    right:0px;
+    right:0em;
     top:0px;
     font-size:2em;
 }
 #homelink{
     position:absolute;
-    right:0px;
-    top:4em;
+    right:10em;
+    top:0px;
     font-size:2em;
 }
 

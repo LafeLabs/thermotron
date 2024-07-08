@@ -1,11 +1,28 @@
 # [THERMOTRON](https://github.com/lafelabs/thermotron)
 
+## [THERMOTRON SCREEN](thermotron.html)
+
+## [THERMOTRON PLOTS](plots.html)
+
+## [THERMOTRON DATA](data.html)
+
+## [THERMOTRON SPONSORS](sponsors/)
+
+## [THERMOTRON MAKERS](makers/)
+
+## [THERMOTRON SCIENTISTS](scientists/)
+
+
 ![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/thermotron.svg)
+
+![](images/thermotron-wordmark.svg)
 
 ![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T-replication.svg)
 
 ![](images/qrcode.png)
 ![](images/qrcode-page.png)
+
+ - [theromtron plot screen](thermotron-fullscreen.html)
 
 
 ![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T-chain.svg)
