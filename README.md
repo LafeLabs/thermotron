@@ -2,7 +2,7 @@
 
 A free thermometer for all the people!
 
- - [Thermomotron live plot](https://colfax.site/thermomotron/)
+ - [Thermomotron live plot](https://colfax.site/thermotron/)
  - [Thermotron Network](scientists/)
  - [Thermotron Makers](makers/)
  - [Thermotron Scientists](scientists/)
