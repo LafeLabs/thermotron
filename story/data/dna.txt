@@ -1,0 +1,32 @@
+{
+    "html": [
+        "README.md",
+        "fork.html",
+        "geometron.js",
+        "index.html",
+        "readme.html",
+        "readmeeditor.html",
+        "trashmagic.css",
+        "trashmagic.js",
+        "webdestroyer.html",
+        "webeditor.html"
+    ],
+    "data": [
+        "dna.txt"
+    ],
+    "php": [
+        "copy.txt",
+        "deletefile.txt",
+        "dir.txt",
+        "dnagenerator.txt",
+        "editor.txt",
+        "fileloader.txt",
+        "filesaver.txt",
+        "mkdir.txt",
+        "pngsave.txt",
+        "rdelete.txt",
+        "replicator.txt",
+        "text2php.txt",
+        "updir.txt"
+    ]
+}

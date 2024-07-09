@@ -36,3 +36,4 @@ web, social, physics, hardware
 
 roman numerals in geometron
 
+Quest: Build the Tarot and sell the deck to [magicians](../magicians/)!
