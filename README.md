@@ -19,11 +19,13 @@ A free thermometer for all the people!
  - [Thermotron Brand](brand/)
  - [Thermotron CircuitPython](circuitpython/)
 
-![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/thermotron.svg)
+[![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/thermotron.svg)](thermotron.html)
 
-![](images/thermotron-wordmark.svg)
+[![](images/thermotron-wordmark.svg)](thermotron.html)
 
-![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T-replication.svg)
+[![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T-replication.svg)](thermotron.html)
+
+[![](images/plot-example-1.png)](plots.html)
 
 ![](images/qrcode.png)
 ![](images/qrcode-page.png)
@@ -39,6 +41,7 @@ A free thermometer for all the people!
 ![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T4.svg)
 [![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T4-back.jpg)](https://www.adafruit.com/product/5027)
 
+![](images/plot-example-1.png)
 
 ### [code.py](https://github.com/LafeLabs/thermotron/blob/main/circuit_python/code.py)
 
