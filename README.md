@@ -12,6 +12,8 @@
 
 ## [THERMOTRON SCIENTISTS](scientists/)
 
+## [THERMOTRON TAROT](tarot/)
+
 ## [README SET](readme/)
 
 ## [QRCODE SET](qrcode/)
