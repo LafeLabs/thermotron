@@ -7,29 +7,17 @@ A free thermometer for all the people!
  - [Thermotron Makers](makers/)
  - [Thermotron Scientists](scientists/)
  - [Thermotron Magicians](magicians/)
+ - [Thermotron Gardeners](gardeners/)
  - [Thermotron Web Devs](webdevs/)
  - [Thermotron Web Hosts](webhosts/)
  - [Thermotron Feather from Adafruit](feather/)
  - [Thermotron Sensors from Adafruit](sensors/)
- - [Thermotron 
-
-## [THERMOTRON SCREEN](thermotron.html)
-
-## [THERMOTRON PLOTS](plots.html)
-
-## [THERMOTRON DATA](data.html)
-
-## [THERMOTRON SPONSORS](sponsors/)
-
-## [THERMOTRON MAKERS](makers/)
-
-## [THERMOTRON SCIENTISTS](scientists/)
-
-## [THERMOTRON TAROT](tarot/)
-
-## [README SET](readme/)
-
-## [QRCODE SET](qrcode/)
+ - [Thermotron QR Codes](qrcode/)
+ - [Thermotron Jupyter](jupyter/)
+ - [Thermotron Thermodynamics](thermodynamics/)
+ - [Thermotron Tarot](tarot/)
+ - [Thermotron Brand](brand/)
+ - [Thermotron CircuitPython](circuitpython/)
 
 ![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/thermotron.svg)
 
@@ -64,7 +52,7 @@ A free thermometer for all the people!
  - [1x $4.95 Adafruit USB Type A to Type C Cable - approx 1 meter / 3 ft long](https://www.adafruit.com/product/4474)
  - [4x $1.13 STEMMA QT / Qwiic JST SH 4-Pin Cable - 200mm Long](https://www.adafruit.com/product/4401)
 
-## LORE
+## PYTHON CODE 
 
 ### [code.py](https://github.com/LafeLabs/thermotron/blob/main/circuit_python/code.py)
 
@@ -132,20 +120,3 @@ while True:
 
 
 ```
-
-
- - [The Qwiic Connect System from Sparkfun](https://www.sparkfun.com/qwiic)
- - [keyboard emulation absolute basics](https://learn.adafruit.com/make-it-a-keyboard/overview)
- - [logger with keyboard emulation](https://learn.adafruit.com/make-it-data-log-spreadsheet-circuit-playground/overview)
- - COMPOST
- - AUTO MECHANICAL THERMOMETRY
- - SOLAR POWER THERMOMETRY
- - THE FEDIVERSE
- - JSON
- - TRASH MAGIC
- - P5JS
- - ADAFRUIT
- - SPARKFUN
- - FEATHER WING
- - CLIMATE DATA
- - [EDITOR.PHP](editor.php)

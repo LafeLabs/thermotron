@@ -16,7 +16,6 @@ mkdir("images");
 mkdir("thermotron_data");
 mkdir("thermotron_plots");
 
-
 copy("https://raw.githubusercontent.com/LafeLabs/thermotron/main/php/replicator.txt","replicator.php");
 
 
