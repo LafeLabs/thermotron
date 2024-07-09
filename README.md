@@ -1,5 +1,18 @@
 # [THERMOTRON](https://github.com/lafelabs/thermotron)
 
+A free thermometer for all the people!
+
+ - [Thermomotron live plot](https://colfax.site/thermomotron/)
+ - [Thermotron Network](scientists/)
+ - [Thermotron Makers](makers/)
+ - [Thermotron Scientists](scientists/)
+ - [Thermotron Magicians](magicians/)
+ - [Thermotron Web Devs](webdevs/)
+ - [Thermotron Web Hosts](webhosts/)
+ - [Thermotron Feather from Adafruit](feather/)
+ - [Thermotron Sensors from Adafruit](sensors/)
+ - [Thermotron 
+
 ## [THERMOTRON SCREEN](thermotron.html)
 
 ## [THERMOTRON PLOTS](plots.html)

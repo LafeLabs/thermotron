@@ -1,15 +1,18 @@
 {
     "html": [
         "README.md",
+        "data.html",
         "fork.html",
         "geometron.js",
         "index.html",
+        "plots.html",
         "qrcode-page.html",
         "qrcode.html",
         "readme.html",
         "readmeeditor.html",
         "replicator.sh",
         "thermotron-fullscreen.html",
+        "thermotron.html",
         "trashmagic.css",
         "trashmagic.js",
         "wall.html",
