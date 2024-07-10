@@ -12,6 +12,7 @@ A free thermometer for all the people!
  - [Thermotron Web Hosts](webhosts/)
  - [Thermotron Feather from Adafruit](feather/)
  - [Thermotron Sensors from Adafruit](sensors/)
+ - [Thermotron Wires from Adafruit](wires/)
  - [Thermotron QR Codes](qrcode/)
  - [Thermotron Jupyter](jupyter/)
  - [Thermotron Thermodynamics](thermodynamics/)
