@@ -1,7 +1,7 @@
 
-## [Home](../)
+## [Back to Thermotron](../)
 
-# [Thermotron Memes](https://github.com/LafeLabs/thermotron/tree/main/makers)
+# [Thermotron Memes](https://github.com/LafeLabs/thermotron/tree/main/memes)
 
 ![](../qrcodes/memes-qrcode.png)
 
