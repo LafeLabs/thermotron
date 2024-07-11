@@ -18,6 +18,7 @@ A free thermometer for all the people!
  - [Thermotron Thermodynamics](thermodynamics/)
  - [Thermotron Tarot](tarot/)
  - [Thermotron Brand](brand/)
+ - [Thermotron Readme Set](readme/)
  - [Thermotron CircuitPython](circuitpython/)
 
 [![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/thermotron.svg)](thermotron.html)
