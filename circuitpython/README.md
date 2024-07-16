@@ -1,5 +1,6 @@
+## [Back to Thermotron](../)
 
-
+![](../qrcodes/circuitpython-qrcode.png)
 
 # CircuitPython
 

@@ -15,9 +15,8 @@ A free thermometer for all the people!
  - [Thermotron Wires from Adafruit](wires/)
  - [Thermotron QR Codes](qrcode/)
  - [Thermotron Jupyter](jupyter/)
- - [Thermotron Thermodynamics](thermodynamics/)
  - [Thermotron Tarot](tarot/)
- - [Thermotron Brand](brand/)
+ - [Thermotron Memes](memes/)
  - [Thermotron Readme Set](readme/)
  - [Thermotron CircuitPython](circuitpython/)
 
