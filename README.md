@@ -24,11 +24,14 @@ A free thermometer for all the people!
 
 [![](images/thermotron-wordmark.svg)](thermotron.html)
 
+![](images/qrcode.png)
+
 [![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T-replication.svg)](thermotron.html)
+
+![](thermotron_plots/thermotron_plot_1720826422.png)
 
 [![](images/plot-example-1.png)](plots.html)
 
-![](images/qrcode.png)
 ![](images/qrcode-page.png)
 ![](images/qrcode-set.png)
 ![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/T-chain.svg)
@@ -124,3 +127,5 @@ while True:
 
 
 ```
+
+
