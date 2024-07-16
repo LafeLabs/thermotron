@@ -3,138 +3,407 @@
 <head>
     <meta charset="utf-8">
 
-    <!--
+        <!--
 
-github.com/lafelabs/picrust/README.md
 
     -->
-    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAP//AP///wANAP8A5Dz6ABueRwAAt/8A6BonABo86AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAREREREREREREREAAAEREREREQCIgREREd3dwAAB3d3d3d3d3d3d3d3d3d3d3d3d3VVVVVVVQAFVVAAVVVQIiBRAiIBEQIAIBECAAERAgAgFgIABmYCIiBmAiIGZgIiIGYCIgZmYCIAaIAAMzMzAAiIiIiIiIiIiIiIiIiIiIiIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
+    
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/wAAAAD/AAAAAP8A/wD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAACIAADMwAEQAIgAAAwAARAAAIAADAAQAAAACAAAAQAAAAAAAAAAAAAAQAAAAAAABAREQAAAAAREQEAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAQAAwAgAAAAQAADAAIAAEQAAAMAACIARAAAMzAAIgAAAAADAAAAD/fwAAnjkAAJ95AADvdwAA9+8AAP9/AAC/fQAAD3AAAL99AAD8HwAA//8AAPdvAADvdwAAn3kAAJ45AAD/fwAA" rel="icon" type="image/x-icon">
+    
+    
 
-    <!--Stop Google:-->
+
+       <!--Stop Google:-->
     <META NAME="robots" CONTENT="noindex,nofollow">
+   <title>THERMOTRON</title>    
+   <script src = "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
 
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>
-
-<!--       un comment to use math
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script>
-            MathJax.Hub.Config({
-                tex2jax: {
-                inlineMath: [['$','$'], ['\\(','\\)']],
-                processEscapes: true,
-                processClass: "mathjax",
-                ignoreClass: "no-mathjax"
-                }
-            });//			MathJax.Hub.Typeset();//tell Mathjax to update the math
-        </script>
-    -->
-
-    
 </head>
-<body>    
-<div id = "scrollscroll"></div>
-<a id = "editlink" href= "readmeeditor.html">EDIT</a>
+<body>
 
-<a id = "homelink" href= "index.html">HOME</a>
+<a href = "https://github.com/lafeLabs/thermotron">
+<img style = "width:100px" src = "http://colfax.site/geometron/symbolfeed/symbol1719700358.svg"/>    
+</a>
 
+       
+   <input id = "datainput"/>
+
+<a id = "homelink" href = "https://github.com/lafeLabs/thermotron">README</a>
+<a id = "plotlink" href = "plots.html">PLOTS</a>
+<a id = "datalink" href = "data.html">DATA</a>
+
+
+<table>
+    <tr id = "row1">
+        <td>T1 = </td>
+        <td id = "T1C"></td>
+        <td>C = </td>
+        <td id = "T1F"></td>
+        <td>F</td>
+    </tr>
+    <tr id = "row2">
+        <td>T2 = </td>
+        <td id = "T2C"></td>
+        <td>C = </td>
+        <td id = "T2F"></td>
+        <td>F</td>
+    </tr>
+    <tr id = "row3">
+        <td>T3 = </td>
+        <td id = "T3C"></td>
+        <td>C = </td>
+        <td id = "T3F"></td>
+        <td>F</td>
+    </tr>
+    <tr id = "row4">
+        <td>T4 = </td>
+        <td id = "T4C"></td>
+        <td>C = </td>
+        <td id = "T4F"></td>
+        <td>F</td>
+    </tr>
+    <tr>
+        <td id = "savebutton" class=  "button">SAVE</td>
+    </tr>
+</table>
+<textarea id = "jsonio"></textarea>
 <script>
+document.getElementById("datainput").value = "";
+document.getElementById("datainput").select();
+document.getElementById("jsonio").value = "";
 
+squareWidth = 400;
 
-scroll = "";
-rawhtml = "";
-var converter = new showdown.Converter();
-// for more on options see here:
-// https://github.com/showdownjs/showdown/wiki/Showdown-Options
-converter.setOption('literalMidWordUnderscores', 'true');
-converter.setOption('tables', 'true')
-    
-filename = "README.md";
-loadscroll("README.md");
+T1Fwave = [];
+T2Fwave = [];
+T3Fwave = [];
+T4Fwave = [];
+T1Cwave = [];
+T2Cwave = [];
+T3Cwave = [];
+T4Cwave = [];
 
+timeindex = 0;
 
-function loadscroll(scrollname){
-    filename = scrollname;
-
-    document.getElementById("scrollscroll").innerHTML = "";
-    document.getElementById("scrollscroll").style.display = "block";
-    var httpc666 = new XMLHttpRequest();
-    httpc666.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            scroll = this.responseText;
-            rawhtml = converter.makeHtml(scroll);
-            document.getElementById("scrollscroll").innerHTML = rawhtml;
-
-            //			MathJax.Hub.Typeset();//tell Mathjax to update the math
-    //			MathJax.Hub.Typeset();//tell Mathjax to update the math
-        }
-    };
-    httpc666.open("GET", "fileloader.php?filename=" + scrollname, true);
-    httpc666.send();
-    //MathJax.Hub.Typeset();//tell Mathjax to update the math
+function setup() {
+    createCanvas(innerWidth,innerHeight);
+    background(255);
+    stroke(0);
+    strokeWeight(10);
+//      image(img, 0, 0,squareWidth-50,squareWidth-70);
 }
 
+
+function draw() {
+  
+  stroke(0);
+
+    
+}
+
+
+metadata = "temperature tests";
+        //add a input for the metadata
+
+document.getElementById("datainput").onchange = function(){
+    rawtext =  this.value;
+    jsondata = JSON.parse("[" + rawtext.split("[")[1].split("]")[0] + "]");
+    if(rawtext.charAt(rawtext.length-1) == 'C'){
+        T1C = Math.round(jsondata[0]*10)/10;
+        T2C = Math.round(jsondata[1]*10)/10;
+        T3C = Math.round(jsondata[2]*10)/10;
+        T4C = Math.round(jsondata[3]*10)/10;
+        document.getElementById("T1C").innerHTML = T1C.toString();
+        document.getElementById("T2C").innerHTML = T2C.toString();
+        document.getElementById("T3C").innerHTML = T3C.toString();
+        document.getElementById("T4C").innerHTML = T4C.toString();
+    }    
+    if(rawtext.charAt(rawtext.length-1) == 'F'){
+        T1F = Math.round(jsondata[0]*10)/10;
+        T2F = Math.round(jsondata[1]*10)/10;
+        T3F = Math.round(jsondata[2]*10)/10;
+        T4F = Math.round(jsondata[3]*10)/10;
+        document.getElementById("T1F").innerHTML = T1F.toString();
+        document.getElementById("T2F").innerHTML = T2F.toString();
+        document.getElementById("T3F").innerHTML = T3F.toString();
+        document.getElementById("T4F").innerHTML = T4F.toString();
+    }    
+    this.value = "";
+    clear();
+    background(255);
+    strokeWeight(1);
+    stroke(0);
+    textSize(35);
+    fill(0);
+    textindent = 10;
+      textAlign(RIGHT);
+
+    line(0,height - map(140, 40, 150, 0, height),width,height - map(140, 40, 150, 0, height));
+    text("140 F",width - textindent,height - map(140, 40, 150, 0, height) - 5);
+    
+    line(0,height - map(130, 40, 150, 0, height),width,height - map(130, 40, 150, 0, height));
+    text("130 F",width - textindent,height - map(130, 40, 150, 0, height) - 5);
+    
+    line(0,height - map(120, 40, 150, 0, height),width,height - map(120, 40, 150, 0, height));
+    text("120 F",width - textindent,height - map(120, 40, 150, 0, height) - 5);
+
+    line(0,height - map(110, 40, 150, 0, height),width,height - map(110, 40, 150, 0, height));
+    text("110 F",width - textindent,height - map(110, 40, 150, 0, height) - 5);
+
+    line(0,height - map(100, 40, 150, 0, height),width,height - map(100, 40, 150, 0, height));
+    text("100 F",width - textindent,height - map(100, 40, 150, 0, height) - 5);
+
+    line(0,height - map(90, 40, 150, 0, height),width,height - map(90, 40, 150, 0, height));
+    text("90 F",width - textindent,height - map(90, 40, 150, 0, height) - 5);
+
+    line(0,height - map(80, 40, 150, 0, height),width,height - map(80, 40, 150, 0, height));
+    text("80 F",width - textindent,height - map(80, 40, 150, 0, height) - 5);
+
+    line(0,height - map(70, 40, 150, 0, height),width,height - map(70, 40, 150, 0, height));
+    text("70 F",width - textindent,height - map(70, 40, 150, 0, height) - 5);
+    line(0,height - map(60, 40, 150, 0, height),width,height - map(60, 40, 150, 0, height));    
+    text("60 F",width - textindent,height - map(60, 40, 150, 0, height) - 5);
+    line(0,height - map(50, 40, 150, 0, height),width,height - map(50, 40, 150, 0, height));
+    text("50 F",width - textindent,height - map(50, 40, 150, 0, height) - 5);
+    
+        //add a grid
+        //add labels for max and min temps
+      textAlign(LEFT);
+
+    for(i = 60;i < width;i += 60){
+        line(2*i,height,2*i,0);
+        text(Math.round(i/60).toString() + " min",2*i + 5,height-5);
+    }
+    
+    stroke(255,0,0);
+    fill(255,0,0);
+    textSize(30);
+    text("T1",110,60);
+    strokeWeight(20);
+    beginShape();
+    T1Fwave.push(T1F);
+    T1Cwave.push(T1C);
+
+    noFill();
+    for(var i = 0; i < T1Fwave.length; i++){
+        y = map(T1Fwave[i], 40, 150, 0, height);
+        vertex(2*i,height - y);
+    }
+    endShape();
+
+    T2Fwave.push(T2F);
+    T2Cwave.push(T2C);
+
+    strokeWeight(1);
+    stroke(0,155,0);
+    fill(0,155,0);
+    text("T2",170,60);
+    strokeWeight(20);
+    beginShape();
+    noFill();
+    for(var i = 0; i < T2Fwave.length; i++){
+        y = map(T2Fwave[i], 40, 150, 0, height);
+        vertex(2*i,height - y);
+    }
+    endShape();
+
+    T3Fwave.push(T3F);
+    T3Cwave.push(T3C);
+
+    strokeWeight(1);
+    stroke(0,0,255);
+    fill(0,0,255);
+    text("T3",230,60);
+    strokeWeight(20);
+    beginShape();
+    noFill();
+    for(var i = 0; i < T3Fwave.length; i++){
+        y = map(T3Fwave[i], 40, 150, 0, height);
+        vertex(2*i,height - y);
+    }
+    endShape();
+
+    T4Fwave.push(T4F);
+    T4Cwave.push(T4C);
+    strokeWeight(1);
+    stroke(255,0,255);
+    fill(255,0,255);
+    text("T4",290,60);
+    strokeWeight(20);
+    beginShape();
+    noFill();
+    for(var i = 0; i < T4Fwave.length; i++){
+        y = map(T4Fwave[i], 40, 150, 0, height);
+        vertex(2*i,height - y);
+    }
+    endShape();
+
+
+    timeindex++;
+    if(timeindex > width/2){
+        timeindex = 0;
+        data = {};
+        data.metadata = metadata;
+        data.T1F = T1Fwave;
+        data.T2F = T2Fwave;
+        data.T3F = T3Fwave;
+        data.T4F = T4Fwave;
+        data.T1C = T1Cwave;
+        data.T2C = T2Cwave;
+        data.T3C = T3Cwave;
+        data.T4C = T4Cwave;
+        document.getElementById("jsonio").value = JSON.stringify(data,null,"    ");
+        //save JSON data file in thermotron_data/
+        //save png file in thermotron_plots/
+        //load all the plots in a plot feed, click on them to get data, all saved by unix time, which marks end of timewave
+        png64 = document.getElementById("defaultCanvas0").toDataURL("image/png");
+        var timestamp = Math.round((new Date().getTime())/1000).toString();
+
+        var httpc = new XMLHttpRequest();
+        var url = "pngsave.php";        
+        httpc.open("POST", url, true);
+        httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        httpc.send("data="+encodeURIComponent(png64.substring(22))+"&filename=thermotron_plots/thermotron_plot_" + timestamp +  ".png");//send text to filesaver.php
+         //location.reload(); 
+
+        var url = "filesaver.php";        
+        var httpc2 = new XMLHttpRequest();
+        httpc2.open("POST", url, true);
+        httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        httpc2.send("data="+encodeURIComponent(JSON.stringify(data,null,"    "))+"&filename=thermotron_data/thermotron_data_" + timestamp +".txt");//send text to filesaver.php
+         
+         
+        T1Fwave = [];
+        T2Fwave = [];
+        T3Fwave = [];
+        T4Fwave = [];
+        T1Cwave = [];
+        T2Cwave = [];
+        T3Cwave = [];
+        T4Cwave = [];
+    }
+}
+
+document.getElementById("savebutton").onclick = function(){
+    saveplot();
+}
+
+function saveplot(){
+        
+        data = {};
+        data.metadata = metadata;
+        data.T1F = T1Fwave;
+        data.T2F = T2Fwave;
+        data.T3F = T3Fwave;
+        data.T4F = T4Fwave;
+        data.T1C = T1Cwave;
+        data.T2C = T2Cwave;
+        data.T3C = T3Cwave;
+        data.T4C = T4Cwave;
+        document.getElementById("jsonio").value = JSON.stringify(data,null,"    ");
+        //save JSON data file in thermotron_data/
+        //save png file in thermotron_plots/
+        //load all the plots in a plot feed, click on them to get data, all saved by unix time, which marks end of timewave
+        png64 = document.getElementById("defaultCanvas0").toDataURL("image/png");
+        var timestamp = Math.round((new Date().getTime())/1000).toString();
+
+        var httpc = new XMLHttpRequest();
+        var url = "pngsave.php";        
+        httpc.open("POST", url, true);
+        httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        httpc.send("data="+encodeURIComponent(png64.substring(22))+"&filename=thermotron_plots/thermotron_plot_" + timestamp +  ".png");//send text to filesaver.php
+         //location.reload(); 
+
+        var url = "filesaver.php";        
+        var httpc2 = new XMLHttpRequest();
+        httpc2.open("POST", url, true);
+        httpc2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        httpc2.send("data="+encodeURIComponent(JSON.stringify(data,null,"    "))+"&filename=thermotron_data/thermotron_data_" + timestamp +".txt");//send text to filesaver.php
+         
+         
+         
+}
 
 </script>
 <style>
+body, table{
+    font-family:Comic Sans MS;
+}
 body{
-    overflow:hidden;
-    background-color:white;
-    font-family:Arial;
+
+    
 }
-a{
-    color:blue;
+input{
+    width:40em;
+    font-size:1em;
+    font-family:courier;
+    background-color:black;
+    color:#00ff00;
 }
-#scrollscroll{
-    padding-left:1em;
-    padding-right:1em;
+textarea{
+    font-family:courier;
+    background-color:black;
+    color:#00ff00;
+    display:none;
+}
+main canvas{
+    border:solid;
+    position:absolute;
     left:0px;
     bottom:0px;
-    position:absolute;
-    overflow:scroll;
-    font-size:2em;
-    display:none;
-    z-index:-3;
+    z-index:-1;
 }
-pre{
-    overflow:scroll;
+table{
+    font-size:3em;
 }
-#scrollscroll img{
-    max-width:50%;
-    display:block;
-    margin:auto;
-    background-color:none;
+#row1{
+    color:red;
 }
-h1,h2,h3,h4{
-    text-align:center;
+#row2{
+    color:green;
 }
-
-#editlink{
-    position:absolute;
-    right:0px;
-    top:0px;
-    font-size:2em;
+#row3{
+    color:blue;
+}
+#row4{
+    color:purple;
 }
 #homelink{
     position:absolute;
-    right:0px;
-    top:4em;
+    right:3em;
+    top:3EM;
+    color:blue;
     font-size:2em;
 }
-
-@media only screen and (orientation: landscape) {
-    #scrollscroll{
-        top:0px;
-        right:100px;
-    }
+#plotlink{
+    position:absolute;
+    right:7em;
+    top:5px;
+    color:blue;
+    font-size:2em;
 }
-
-@media only screen and (orientation: portrait) {
-    #scrollscroll{
-        top:100px;
-        right:0px;
-    }
+#datalink{
+    position:absolute;
+    right:12em;
+    top:5px;
+    color:blue;
+    font-size:2em;
+}
+.button{
+    border:solid;
+    text-align:center;
+    border-radius:5px;
+    cursor:pointer;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
 }
 </style>
 </body>
 </html>
+
+
