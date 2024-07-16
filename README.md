@@ -3,7 +3,6 @@
 A free thermometer for all the people!
 
  - [localhost](http://localhost/)
- - [Thermomotron live plot](https://colfax.site/thermotron/)
  - [Thermotron Network](network/)
  - [Thermotron Makers](makers/)
  - [Thermotron Scientists](scientists/)
@@ -48,6 +47,8 @@ A free thermometer for all the people!
 
 ### [code.py](https://github.com/LafeLabs/thermotron/blob/main/circuit_python/code.py)
 
+### [AdaFruit CircuitPython guide for Feather used in THERMOTRON](https://learn.adafruit.com/adafruit-esp32-s2-tft-feather/circuitpython)
+
 ![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/circuitpy-lib.jpg)
 
 
@@ -60,12 +61,10 @@ A free thermometer for all the people!
 
 ## PYTHON CODE 
 
+
 ### [code.py](https://github.com/LafeLabs/thermotron/blob/main/circuit_python/code.py)
 
 ```
-# SPDX-FileCopyrightText: 2018 Kattni Rembor for Adafruit Industries
-#
-# SPDX-License-Identifier: MIT
 
 import time
 import board
