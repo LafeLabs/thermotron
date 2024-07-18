@@ -20,6 +20,8 @@ A free thermometer for all the people!
  - [Thermotron Readme Set](readme/)
  - [Thermotron CircuitPython](circuitpython/)
 
+When you get a thermotron, plug it in and press the button closest to the screen to make it type out temperatures, in order from the one closest to the board to the one farthest away. 
+
 [![](https://raw.githubusercontent.com/LafeLabs/thermotron/main/images/thermotron.svg)](thermotron.html)
 
 [![](images/thermotron-wordmark.svg)](thermotron.html)
